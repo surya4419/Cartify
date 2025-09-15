@@ -5,8 +5,8 @@ import { serve } from 'https://deno.land/std@0.224.0/http/server.ts'
 // Helper: Call Groq API (Llama 3) to extract context, required items, and budget
 async function extractShoppingMission(query: string) {
     // @ts-expect-error Deno is available in the Edge Function runtime
-  const apiKey = Deno.env.get('GROQ_API_KEY')
-  const llamaModel = 'llama3-70b-8192' // or your preferred model
+  const apiKey = Deno.env.get('GROQ_API_KEY') || Deno.env.get('VITE_GROQ_API_KEY')
+  const llamaModel = 'llama-3.1-8b-instant' // or your preferred model
 
   const prompt = `
 You are a smart shopping assistant. Given a user query, respond ONLY with a valid JSON object with the following keys:
@@ -56,7 +56,7 @@ User: ${query}
 // Helper: Fetch Walmart products from SerpAPI
 async function fetchWalmartProducts(query: string) {
     // @ts-expect-error Deno is available in the Edge Function runtime
-  const apiKey = Deno.env.get('SERPAPI_KEY')
+  const apiKey = Deno.env.get('SERPAPI_KEY') || Deno.env.get('VITE_SERPAPI_KEY')
   const url = `https://serpapi.com/search.json?engine=walmart&query=${encodeURIComponent(query)}&api_key=${apiKey}`
   const response = await fetch(url)
   if (!response.ok) {
@@ -83,13 +83,21 @@ const corsHeaders = {
 };
 
 serve(async (req) => {
-  console.log('cartify-agent function invoked');
+  console.log('goCart-agent function invoked');
 
   // Debug: Log presence of env vars
   // @ts-expect-error Deno is available in the Edge Function runtime
-  console.log('GROQ_API_KEY present:', !!Deno.env.get('GROQ_API_KEY'));
+  const groqKey = Deno.env.get('GROQ_API_KEY') || Deno.env.get('VITE_GROQ_API_KEY');
   // @ts-expect-error Deno is available in the Edge Function runtime
-  console.log('SERPAPI_KEY present:', !!Deno.env.get('SERPAPI_KEY'));
+  const serpKey = Deno.env.get('SERPAPI_KEY') || Deno.env.get('VITE_SERPAPI_KEY');
+  console.log('GROQ_API_KEY present:', !!groqKey);
+  console.log('SERPAPI_KEY present:', !!serpKey);
+  
+  if (!groqKey || !serpKey) {
+    return new Response(JSON.stringify({ 
+      error: 'Missing required API keys. Please ensure GROQ_API_KEY and SERPAPI_KEY are set in environment variables.' 
+    }), { status: 500, headers: corsHeaders });
+  }
 
   // Handle CORS preflight
   if (req.method === "OPTIONS") {
@@ -140,11 +148,11 @@ serve(async (req) => {
     })
   } catch (e) {
     // Debug: Log error details robustly
-    console.error('Error in cartify-agent (string):', e && e.toString ? e.toString() : e);
-    console.error('Error in cartify-agent (object):', e);
+    console.error('Error in goCart-agent (string):', e && e.toString ? e.toString() : e);
+    console.error('Error in goCart-agent (object):', e);
     if (e && e.stack) {
       console.error('Error stack:', e.stack);
     }
     return new Response(JSON.stringify({ error: e.message || e.toString() }), { status: 500, headers: corsHeaders })
   }
-}) 
+})

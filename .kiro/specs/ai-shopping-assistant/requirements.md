@@ -2,7 +2,7 @@
 
 ## Introduction
 
-CartifyAI is a universal AI shopping agent designed to integrate seamlessly into e-commerce platforms as an intelligent, conversational shopping companion. The system provides personalized product recommendations, budget optimization, voice-enabled interactions, and a complete shopping experience through natural language processing and advanced AI capabilities.
+goCartAI is a universal AI shopping agent designed to integrate seamlessly into e-commerce platforms as an intelligent, conversational shopping companion. The system provides personalized product recommendations, budget optimization, voice-enabled interactions, and a complete shopping experience through natural language processing and advanced AI capabilities.
 
 ## Requirements
 
@@ -85,11 +85,11 @@ CartifyAI is a universal AI shopping agent designed to integrate seamlessly into
 
 ### Requirement 8: Universal Widget Integration
 
-**User Story:** As an e-commerce platform owner, I want to easily integrate CartifyAI into my website, so that my customers can benefit from AI-powered shopping assistance without complex implementation.
+**User Story:** As an e-commerce platform owner, I want to easily integrate goCartAI into my website, so that my customers can benefit from AI-powered shopping assistance without complex implementation.
 
 #### Acceptance Criteria
 
-1. WHEN the CartifyAI widget is embedded THEN it SHALL function independently without affecting the host site
+1. WHEN the goCartAI widget is embedded THEN it SHALL function independently without affecting the host site
 2. WHEN the widget loads THEN it SHALL adapt to the host site's product catalog and branding
 3. WHEN users interact with the widget THEN it SHALL maintain consistent functionality across different platforms
 4. IF the host site has existing cart functionality THEN the widget SHALL integrate seamlessly with existing systems

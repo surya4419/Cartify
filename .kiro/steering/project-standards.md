@@ -2,10 +2,10 @@
 inclusion: always
 ---
 
-# CartifyAI Project Standards
+# goCartAI Project Standards
 
 ## Project Overview
-CartifyAI is a universal AI shopping agent that integrates into e-commerce platforms as a smart, conversational shopping companion. The project uses React, TypeScript, Supabase, and various AI APIs to provide personalized shopping experiences.
+goCartAI is a universal AI shopping agent that integrates into e-commerce platforms as a smart, conversational shopping companion. The project uses React, TypeScript, Supabase, and various AI APIs to provide personalized shopping experiences.
 
 ## Technology Stack
 - **Frontend**: React 18, TypeScript, Vite, Tailwind CSS

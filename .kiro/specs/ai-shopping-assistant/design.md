@@ -2,7 +2,7 @@
 
 ## Overview
 
-CartifyAI is architected as a modern, scalable AI-powered shopping assistant that combines conversational AI, real-time product data, and seamless e-commerce integration. The system uses a React-based frontend with TypeScript, Supabase for backend services, and multiple AI APIs to deliver a comprehensive shopping experience.
+goCartAI is architected as a modern, scalable AI-powered shopping assistant that combines conversational AI, real-time product data, and seamless e-commerce integration. The system uses a React-based frontend with TypeScript, Supabase for backend services, and multiple AI APIs to deliver a comprehensive shopping experience.
 
 ## Architecture
 
@@ -48,9 +48,9 @@ graph TB
 
 ### Core Components
 
-#### 1. CartifyAssistant Component
+#### 1. goCartAssistant Component
 ```typescript
-interface CartifyAssistantProps {
+interface goCartAssistantProps {
   isOpen: boolean
   onClose: () => void
 }
@@ -96,9 +96,9 @@ interface Product {
 - Show pricing and availability
 - Provide quick purchase options
 
-#### 3. FloatingCartifyButton Component
+#### 3. FloatinggoCartButton Component
 ```typescript
-interface FloatingCartifyButtonProps {
+interface FloatinggoCartButtonProps {
   position?: 'bottom-right' | 'bottom-left'
   showTooltips?: boolean
 }
@@ -146,8 +146,8 @@ interface StoreState {
   clearCart: () => void
   
   // UI state
-  cartifyOpen: boolean
-  setCartifyOpen: (open: boolean) => void
+  goCartOpen: boolean
+  setgoCartOpen: (open: boolean) => void
   
   // Product state
   products: Product[]

@@ -38,7 +38,7 @@ export const CheckoutPage: React.FC = () => {
     if (paymentSuccess) {
       setCartItems([]);
       if (window.localStorage) {
-        window.localStorage.removeItem('cartify-cart');
+        window.localStorage.removeItem('goCart-cart');
       }
     }
   }, [paymentSuccess, setCartItems]);

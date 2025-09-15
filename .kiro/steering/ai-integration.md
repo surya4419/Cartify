@@ -1,6 +1,6 @@
 ---
 inclusion: fileMatch
-fileMatchPattern: "**/components/Cartify*"
+fileMatchPattern: "**/components/goCart*"
 ---
 
 # AI Integration Guidelines

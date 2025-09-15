@@ -5,7 +5,7 @@ import { supabase } from '../lib/supabase'
 import { AgentAnalyticsTool } from './AgentAnalyticsTool'
 import { useNavigate } from 'react-router-dom'
 
-interface CartifyProduct {
+interface goCartProduct {
   id: string
   name: string
   price: number
@@ -22,12 +22,12 @@ interface QuickOption {
   icon: string
 }
 
-export const CartifyAssistant: React.FC = () => {
-  const { cartifyOpen, setCartifyOpen, addToCart, products, user } = useStore()
+export const goCartAssistant: React.FC = () => {
+  const { goCartOpen, setgoCartOpen, addToCart, products, user } = useStore()
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState<Array<{ type: 'user' | 'bot', content: string }>>([])
   const [isProcessing, setIsProcessing] = useState(false)
-  const [suggestedProducts, setSuggestedProducts] = useState<CartifyProduct[]>([])
+  const [suggestedProducts, setSuggestedProducts] = useState<goCartProduct[]>([])
   const [isListening, setIsListening] = useState(false)
   const [isTranscribing, setIsTranscribing] = useState(false)
   const [showQuickOptions, setShowQuickOptions] = useState(true)
@@ -77,18 +77,18 @@ export const CartifyAssistant: React.FC = () => {
   }, [messages])
 
   useEffect(() => {
-    if (cartifyOpen) {
+    if (goCartOpen) {
       setViewMode('chat')
       setMessages([
         {
           type: 'bot',
-          content: "Hi! I'm Cartify, your AI shopping assistant! 🛒✨\n\nI understand your needs, mood, and budget to find perfect products for you.\n\nChoose a quick option below or tell me what you need!"
+          content: "Hi! I'm goCart, your AI shopping assistant! 🛒✨\n\nI understand your needs, mood, and budget to find perfect products for you.\n\nChoose a quick option below or tell me what you need!"
         }
       ])
       setShowQuickOptions(true)
       setSuggestedProducts([])
     }
-  }, [cartifyOpen])
+  }, [goCartOpen])
 
   useEffect(() => {
     if (viewMode === 'history' && user) {
@@ -182,18 +182,37 @@ export const CartifyAssistant: React.FC = () => {
     }
   }
 
-  // Helper to call the Cartify AI Agent edge function
-  async function fetchCartifyAgentResponse(query: string) {
-    const res = await fetch('https://cmpgbcxxekyjtvvcabbw.functions.supabase.co/cartify-agent', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
-      },
-      body: JSON.stringify({ query }),
-    });
-    if (!res.ok) throw new Error('Failed to fetch agent response');
-    return await res.json();
+  // Helper to call the goCart AI Agent edge function
+  async function fetchgoCartAgentResponse(query: string) {
+    try {
+      // Try local development server first
+      const response = await fetch('http://localhost:3001/api/goCart-agent', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ query })
+      })
+      
+      if (response.ok) {
+        return await response.json()
+      }
+      
+      // Fallback to Supabase edge function
+      const res = await fetch('https://cmpgbcxxekyjtvvcabbw.functions.supabase.co/goCart-agent', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
+        },
+        body: JSON.stringify({ query }),
+      });
+      if (!res.ok) throw new Error('Failed to fetch agent response');
+      return await res.json();
+    } catch (error) {
+      console.error('Error calling goCart agent:', error)
+      throw error
+    }
   }
 
   const handleSendMessage = async (customInput?: string) => {
@@ -207,7 +226,7 @@ export const CartifyAssistant: React.FC = () => {
     setMessages(prev => [...prev, { type: 'user', content: userMessage }]);
 
     try {
-      const data = await fetchCartifyAgentResponse(userMessage);
+      const data = await fetchgoCartAgentResponse(userMessage);
       // Deduplicate by id and limit to max 3 per name
       const nameCounts: Record<string, number> = {};
       const seenIds = new Set();
@@ -295,7 +314,7 @@ export const CartifyAssistant: React.FC = () => {
     setOrderProducts([]);
   };
 
-  if (!cartifyOpen) return null
+  if (!goCartOpen) return null
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-1 sm:p-2">
@@ -307,7 +326,7 @@ export const CartifyAssistant: React.FC = () => {
               <Bot className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
             </div>
             <div>
-              <h2 className="text-base sm:text-lg font-bold text-white">Cartify AI Agent</h2>
+              <h2 className="text-base sm:text-lg font-bold text-white">goCart AI Agent</h2>
               <p className="text-blue-100 text-xs sm:text-sm">Your intelligent shopping assistant</p>
             </div>
           </div>
@@ -327,7 +346,7 @@ export const CartifyAssistant: React.FC = () => {
               <Clock className="h-5 w-5" />
             </button>
           <button
-            onClick={() => setCartifyOpen(false)}
+            onClick={() => setgoCartOpen(false)}
               className="p-2 hover:bg-white hover:bg-opacity-20 rounded-full transition-colors"
           >
               <X className="h-5 w-5" />
@@ -389,7 +408,7 @@ export const CartifyAssistant: React.FC = () => {
                     <div className="bg-white px-3 py-2 rounded-xl shadow border border-gray-200">
                       <div className="flex items-center space-x-2">
                         <Sparkles className="h-4 w-4 text-[rgb(99, 102, 241)] animate-spin" />
-                        <span className="text-xs text-gray-600 font-medium">Cartify AI Agent is thinking...</span>
+                        <span className="text-xs text-gray-600 font-medium">goCart AI Agent is thinking...</span>
                     </div>
                   </div>
                 </div>

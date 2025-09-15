@@ -24,14 +24,14 @@ app.use(cors());
 
 app.get('/api/serpapi', (req: Request, res: Response): void => {
   const { query, page = 1 } = req.query;
-  const apiKey = process.env.VITE_SERPAPI_KEY;
+  const apiKey = process.env.SERPAPI_KEY || process.env.VITE_SERPAPI_KEY;
   console.log('Using SerpAPI key:', apiKey);
   if (!apiKey) {
     res.status(500).json({ error: 'SerpAPI key not set in environment variables.' });
     return;
   }
   if (!query) {
-    res.status(400).json({ error: 'Missing query parameter "q".' });
+    res.status(400).json({ error: 'Missing query parameter "query".' });
     return;
   }
   const url = `https://serpapi.com/search.json?engine=walmart&query=${encodeURIComponent(query as string)}&api_key=${apiKey}&page=${page}`;

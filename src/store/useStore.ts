@@ -37,7 +37,7 @@ interface AppState {
   searchQuery: string
   selectedCategory: string
   isLoading: boolean
-  cartifyOpen: boolean
+  goCartOpen: boolean
   
   // Actions
   setUser: (user: User | null) => void
@@ -46,7 +46,7 @@ interface AppState {
   setSearchQuery: (query: string) => void
   setSelectedCategory: (category: string) => void
   setLoading: (loading: boolean) => void
-  setCartifyOpen: (open: boolean) => void
+  setgoCartOpen: (open: boolean) => void
   addToCart: (product: Product, quantity: number) => void
   removeFromCart: (cartItemId: string) => void
   updateCartQuantity: (cartItemId: string, quantity: number) => void
@@ -73,7 +73,7 @@ export const useStore = create<AppState>()(
       searchQuery: '',
       selectedCategory: '',
       isLoading: false,
-      cartifyOpen: false,
+      goCartOpen: false,
 
       setUser: (user) => {
         set({ user })
@@ -88,7 +88,7 @@ export const useStore = create<AppState>()(
       setSearchQuery: (searchQuery) => set({ searchQuery }),
       setSelectedCategory: (selectedCategory) => set({ selectedCategory }),
       setLoading: (isLoading) => set({ isLoading }),
-      setCartifyOpen: (cartifyOpen) => set({ cartifyOpen }),
+      setgoCartOpen: (goCartOpen) => set({ goCartOpen }),
 
       signIn: async (email, password) => {
         const { data, error } = await supabase.auth.signInWithPassword({
@@ -312,7 +312,7 @@ export const useStore = create<AppState>()(
       }
     }),
     {
-      name: 'cartify-cart',
+      name: 'goCart-cart',
       partialize: (state) => ({
         cartItems: state.cartItems,
       }),

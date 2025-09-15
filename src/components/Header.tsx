@@ -54,7 +54,7 @@ export const Header: React.FC = () => {
                   <span className="text-white font-bold text-lg">C</span>
                 </div>
                 <div className="hidden sm:block">
-                  <h1 className="text-xl font-bold text-gray-900">CartifyAI</h1>
+                  <h1 className="text-xl font-bold text-gray-900">goCartAI</h1>
                   <p className="text-xs text-gray-500">Smart Shopping</p>
                 </div>
               </div>

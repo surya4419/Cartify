@@ -1,8 +1,8 @@
-# CartifyAI Project Overview
+# goCartAI Project Overview
 
 ## Project Status: ✅ COMPLETED
 
-CartifyAI is a fully implemented universal AI shopping assistant that provides intelligent, conversational shopping experiences for e-commerce platforms.
+goCartAI is a fully implemented universal AI shopping assistant that provides intelligent, conversational shopping experiences for e-commerce platforms.
 
 ## 🎯 Key Features Implemented
 
@@ -64,8 +64,8 @@ src/
 ├── components/          # React components
 │   ├── Header.tsx
 │   ├── ProductCard.tsx
-│   ├── CartifyAssistant.tsx
-│   ├── FloatingCartifyButton.tsx
+│   ├── goCartAssistant.tsx
+│   ├── FloatinggoCartButton.tsx
 │   ├── CheckoutPage.tsx
 │   └── ...
 ├── lib/                # Utilities and services
@@ -78,7 +78,7 @@ src/
 
 .kiro/
 ├── specs/              # Feature specifications
-│   └── cartify-ai-shopping-assistant/
+│   └── goCart-ai-shopping-assistant/
 ├── steering/           # Development guidelines
 │   ├── project-standards.md
 │   ├── ai-integration.md

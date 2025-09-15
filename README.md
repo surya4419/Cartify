@@ -1,13 +1,13 @@
-# CartifyAI
+# goCartAI
 
 ---
 
-## 🛒 What is CartifyAI?
+## 🛒 What is goCartAI?
 
-CartifyAI is a universal AI shopping agent that can be integrated into any e-commerce platform. It acts as a smart, conversational shopping companion, helping users find products, optimize their budget, and enjoy a personalized shopping experience—all through natural conversation and advanced AI.
+goCartAI is a universal AI shopping agent that can be integrated into any e-commerce platform. It acts as a smart, conversational shopping companion, helping users find products, optimize their budget, and enjoy a personalized shopping experience—all through natural conversation and advanced AI.
 <!-- If the image is not showing, try using a relative path from the README location, or use Markdown syntax: -->
-![CartifyAI Logo](CartifyAI-logo.png)
-<!-- If the image still does not appear, ensure CartifyAI-logo.png exists in the same directory as this README. -->
+![goCartAI Logo](goCartAI-logo.png)
+<!-- If the image still does not appear, ensure goCartAI-logo.png exists in the same directory as this README. -->
 ---
 
 ## ✨ Key Features
@@ -24,10 +24,10 @@ CartifyAI is a universal AI shopping agent that can be integrated into any e-com
 
 ## ⚙️ How It Works
 
-1. **Conversational AI**: Users interact with CartifyAI via chat or voice. The agent understands intent, mood, and preferences.
-2. **Product Discovery**: CartifyAI fetches real-time product data from Walmart (via SerpAPI) and recommends the best matches.
+1. **Conversational AI**: Users interact with goCartAI via chat or voice. The agent understands intent, mood, and preferences.
+2. **Product Discovery**: goCartAI fetches real-time product data from Walmart (via SerpAPI) and recommends the best matches.
 3. **Personalized Experience**: The agent adapts to user emotions and budget, optimizing recommendations and cart suggestions.
-4. **Seamless Checkout**: Users can add items to their cart and proceed to checkout—all within the CartifyAI widget.
+4. **Seamless Checkout**: Users can add items to their cart and proceed to checkout—all within the goCartAI widget.
 
 ---
 
@@ -35,8 +35,8 @@ CartifyAI is a universal AI shopping agent that can be integrated into any e-com
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/CartifyAI-Walmart.git
-cd CartifyAI-Walmart
+git clone https://github.com/yourusername/goCartAI-Walmart.git
+cd goCartAI-Walmart
 ```
 
 ### 2. Set Up Environment Variables
@@ -95,4 +95,4 @@ Contributions are welcome! Please open issues or pull requests for improvements,
 
 ---
 
-> **CartifyAI – Your Smartest Shopping Companion!** 
+> **goCartAI – Your Smartest Shopping Companion!** 

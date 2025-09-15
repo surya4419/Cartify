@@ -92,7 +92,7 @@
     - _Requirements: 1.1, 1.2, 9.3_
 
 - [x] 6. Develop AI conversation system
-  - [x] 6.1 Create CartifyAssistant chat interface
+  - [x] 6.1 Create goCartAssistant chat interface
     - Build chat UI with message bubbles and input field
 
 
@@ -169,7 +169,7 @@
 
     - _Requirements: 7.3, 7.4_
 
-- [x] 10. Add FloatingCartifyButton and entry points
+- [x] 10. Add FloatinggoCartButton and entry points
   - [x] 10.1 Create floating AI assistant button
     - Design prominent floating action button
 

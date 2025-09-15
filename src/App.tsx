@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { Header } from './components/Header'
 import { HeroBanner } from './components/HeroBanner'
 import { ProductGrid } from './components/ProductGrid'
-import { CartifyAssistant } from './components/CartifyAssistant'
-import { FloatingCartifyButton } from './components/FloatingCartifyButton'
+import { goCartAssistant } from './components/goCartAssistant'
+import { FloatinggoCartButton } from './components/FloatinggoCartButton'
 import { CheckoutPage } from './components/CheckoutPage'
 import { useStore } from './store/useStore'
 import { supabase } from './lib/supabase'
@@ -15,8 +15,8 @@ function HomePage() {
       <Header />
       <HeroBanner />
       <ProductGrid />
-      <CartifyAssistant />
-      <FloatingCartifyButton />
+      <goCartAssistant />
+      <FloatinggoCartButton />
     </>
   )
 }

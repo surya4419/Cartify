@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Bot, X } from 'lucide-react'
 import { useStore } from '../store/useStore'
 
-export const FloatingCartifyButton: React.FC = () => {
-  const { setCartifyOpen } = useStore()
+export const FloatinggoCartButton: React.FC = () => {
+  const { setgoCartOpen } = useStore()
   const [showTooltip, setShowTooltip] = useState(true)
   const [messages] = useState([
     "🛒 Need help shopping? I'm your AI assistant!",
@@ -59,7 +59,7 @@ export const FloatingCartifyButton: React.FC = () => {
 
       {/* Modern AI Assistant Button */}
       <button
-        onClick={() => setCartifyOpen(true)}
+        onClick={() => setgoCartOpen(true)}
         className="bg-gradient-to-r from-indigo-600 to-purple-700 text-white p-3 sm:p-4 lg:p-5 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 relative group border-2 border-white"
       >
         {/* Animated pulse rings */}
